@@ -1,4 +1,4 @@
-# biscoint--bot
+# biscoint-bot
 
 To use please:
 
