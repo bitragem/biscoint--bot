@@ -1,0 +1,15 @@
+{
+  "name": "biscoint-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/bitragem/biscoint-bot",
+  "author": "Toledo <gustavo@obex.pw>",
+  "license": "MIT",
+  "dependencies": {
+    "biscoint-api-node": "^1.2.0",
+    "esm": "^3.2.25"
+  },
+  "scripts": {
+    "start": "node -r esm src/index.js"
+  }
+}
