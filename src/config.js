@@ -5,5 +5,6 @@ export default {
   initialSell: true,
   minProfitPercent: 0.2,
   intervalMs: 6250,
-  test: false
+  test: false,
+  profitlogger: false
 };
