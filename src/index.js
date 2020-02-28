@@ -7,9 +7,9 @@ let { amount, initialSell, minProfitPercent, intervalMs, test, differencelogger 
 const bc = new Biscoint({
   apiKey: config.key,
   apiSecret: config.secret
-}).then(() => {
-  handleMessage('Successfully started');
 });
+
+handleMessage('Successfully started');
 
 let sellOffer = null,
   buyOffer = null,
