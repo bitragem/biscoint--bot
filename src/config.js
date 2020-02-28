@@ -6,5 +6,5 @@ export default {
   minProfitPercent: 0.2,
   intervalMs: 6250,
   test: false,
-  profitlogger: false
+  differencelogger: false
 };
