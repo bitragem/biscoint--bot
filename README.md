@@ -1,4 +1,6 @@
 # biscoint-bot
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbitragem%2Fbiscoint-bot.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbitragem%2Fbiscoint-bot?ref=badge_shield)
+
 
 [![Known Vulnerabilities](https://snyk.io/test/github/bitragem/biscoint-bot/badge.svg?targetFile=package.json)](https://snyk.io/test/github/bitragem/biscoint-bot?targetFile=package.json)
 
@@ -25,3 +27,7 @@ Whatsapp: [pt-BR](https://chat.whatsapp.com/KxB0etimVPQL3ncEn8u7tO)
 
 Telegram: [pt-BR](https://t.me/bitragem) /
 [en-US](https://t.me/bitragemEnglish)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbitragem%2Fbiscoint-bot.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbitragem%2Fbiscoint-bot?ref=badge_large)
