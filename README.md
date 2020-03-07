@@ -1,10 +1,7 @@
 # biscoint-bot
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbitragem%2Fbiscoint-bot.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbitragem%2Fbiscoint-bot?ref=badge_shield)
 
-
 [![Known Vulnerabilities](https://snyk.io/test/github/bitragem/biscoint-bot/badge.svg?targetFile=package.json)](https://snyk.io/test/github/bitragem/biscoint-bot?targetFile=package.json)
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbitragem%2Fbiscoint-bot.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbitragem%2Fbiscoint-bot?ref=badge_shield)
 
 ---
 
