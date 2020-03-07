@@ -1,5 +1,9 @@
 # biscoint-bot
 
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbitragem%2Fbiscoint-bot.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbitragem%2Fbiscoint-bot?ref=badge_shield)
+
+---
+
 To use please:
 
 - generate your api at [Biscoint](https://biscoint.io/?utm_source=bitragem&utm_medium=link&utm_campaign=bitragem_link)
