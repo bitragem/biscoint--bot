@@ -14,10 +14,6 @@ export function handleError(message, error, throwError = false) {
   }
 }
 
-export async function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve(), ms));
-}
-
 export function percent(value1, value2) {
   return (Number(value2) / Number(value1) - 1) * 100;
 }

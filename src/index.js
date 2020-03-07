@@ -2,14 +2,21 @@ import Biscoint from "biscoint-api-node";
 import { handleMessage, handleError, percent } from "./utils";
 import config from "./config.js";
 
-let { amount, initialSell, minProfitPercent, intervalMs, test, differencelogger } = config;
+let {
+  amount,
+  initialSell,
+  minProfitPercent,
+  intervalMs,
+  test,
+  differencelogger
+} = config;
 
 const bc = new Biscoint({
   apiKey: config.key,
   apiSecret: config.secret
 });
 
-handleMessage('Successfully started');
+handleMessage("Successfully started");
 
 let sellOffer = null,
   buyOffer = null,
@@ -36,16 +43,17 @@ setInterval(async () => {
     Date.now() - lastTrade >= intervalMs
   ) {
     const profit = percent(buyOffer.efPrice, sellOffer.efPrice);
-    if (differencelogger) handleMessage(`Difference now: ${profit.toFixed(3)}%`);
+    if (differencelogger)
+      handleMessage(`Difference now: ${profit.toFixed(3)}%`);
     if (minProfitPercent <= profit && !test) {
       handleMessage(`Profit found: ${profit.toFixed(3)}%`);
       if (initialSell) {
         try {
-          let resSell = await bc.confirmOffer({ offerId: sellOffer.offerId });
+          await bc.confirmOffer({ offerId: sellOffer.offerId });
           handleMessage("Success on sell");
           /* buy */
           try {
-            let resBuy = await bc.confirmOffer({
+            await bc.confirmOffer({
               offerId: buyOffer.offerId
             });
             handleMessage("Success on rebuy");
@@ -63,11 +71,11 @@ setInterval(async () => {
         }
       } else {
         try {
-          let resBuy = await bc.confirmOffer({ offerId: buyOffer.offerId });
+          await bc.confirmOffer({ offerId: buyOffer.offerId });
           handleMessage("Success on buy");
           /* sell */
           try {
-            let resSell = await bc.confirmOffer({ offerId: sellOffer.offerId });
+            await bc.confirmOffer({ offerId: sellOffer.offerId });
             handleMessage("Success on sell");
             lastTrade = Date.now();
             handleMessage(`Success, profit: + ${profit.toFixed(3)}%`);
