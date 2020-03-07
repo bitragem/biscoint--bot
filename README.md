@@ -20,7 +20,7 @@ if you want to use pm2
 
 # Communities
 
-Whatsapp: [pt-BR](https://chat.whatsapp.com/KxB0etimVPQL3ncEn8u7tO)
+Whatsapp: [pt-BR](https://chat.whatsapp.com/KdpG9KKq2beD1kWGsR7f4B)
 
 Telegram: [pt-BR](https://t.me/bitragem) /
 [en-US](https://t.me/bitragemEnglish)
