@@ -37,31 +37,27 @@ setInterval(async () => {
   } catch (error) {
     handleError("Error on get offer", error);
   }
-  if (
-    sellOffer != null &&
-    buyOffer != null &&
-    Date.now() - lastTrade >= intervalMs
-  ) {
+  if (Date.now() - lastTrade >= intervalMs) {
     const profit = percent(buyOffer.efPrice, sellOffer.efPrice);
     if (differencelogger)
       handleMessage(`Difference now: ${profit.toFixed(3)}%`);
     if (minProfitPercent <= profit && !test) {
       handleMessage(`Profit found: ${profit.toFixed(3)}%`);
       if (initialSell) {
+        /* initial sell */
         try {
           await bc.confirmOffer({ offerId: sellOffer.offerId });
           handleMessage("Success on sell");
-          /* buy */
           try {
             await bc.confirmOffer({
               offerId: buyOffer.offerId
             });
-            handleMessage("Success on rebuy");
+            handleMessage("Success on buy");
             lastTrade = Date.now();
           } catch (error) {
-            handleError("Error on rebuy", error);
+            handleError("Error on buy, retrying", error);
+            await forceConfirm("buy", sellOffer.efPrice);
           }
-          /* buy */
         } catch (error) {
           handleError("Error on sell", error);
           if (error.error === "Insufficient funds") {
@@ -70,19 +66,19 @@ setInterval(async () => {
           }
         }
       } else {
+        /* initial buy */
         try {
           await bc.confirmOffer({ offerId: buyOffer.offerId });
           handleMessage("Success on buy");
-          /* sell */
           try {
             await bc.confirmOffer({ offerId: sellOffer.offerId });
             handleMessage("Success on sell");
             lastTrade = Date.now();
             handleMessage(`Success, profit: + ${profit.toFixed(3)}%`);
           } catch (error) {
-            handleError("Error on sell", error);
+            handleError("Error on sell, retrying", error);
+            await forceConfirm("sell", buyOffer.efPrice);
           }
-          /* sell */
         } catch (error) {
           handleError("Error on buy", error);
           if (error.error === "Insufficient funds") {
@@ -94,3 +90,24 @@ setInterval(async () => {
     }
   }
 }, intervalMs);
+
+async function forceConfirm(side, oldPrice) {
+  try {
+    const offer = await bc.offer({
+      amount,
+      isQuote: false,
+      op: side
+    });
+
+    // if side is buy then compare with sell price
+    if (
+      (side === "buy" && oldPrice * 1.001 >= Number(offer.efPrice)) ||
+      (side === "sell" && oldPrice * 0.999 <= Number(offer.efPrice))
+    ) {
+      await bc.confirmOffer({ offerId: offer.offerId });
+      handleMessage("Success on retry");
+    } else throw "Error on forceConfirm, price is much distant";
+  } catch (error) {
+    handleError("Error on force confirm", error);
+  }
+}
