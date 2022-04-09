@@ -8,7 +8,7 @@
   "dependencies": {
     "biscoint-api-node": "^1.2.0",
     "esm": "^3.2.25",
-    "moment": "^2.24.0"
+    "moment": "^2.29.2"
   },
   "scripts": {
     "start": "node -r esm src/index.js"
