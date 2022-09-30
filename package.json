@@ -6,9 +6,9 @@
   "author": "Toledo <gustavo@obex.pw>",
   "license": "MIT",
   "dependencies": {
-    "biscoint-api-node": "^1.2.0",
+    "biscoint-api-node": "^1.2.4",
     "esm": "^3.2.25",
-    "moment": "^2.24.0"
+    "moment": "^2.29.4"
   },
   "scripts": {
     "start": "node -r esm src/index.js"
